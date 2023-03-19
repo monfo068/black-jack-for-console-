@@ -3,7 +3,8 @@
 #include <string.h>
 #include <string>
 #include <time.h>
-// ora devo verificare la funzionalita' della divisione poi verificare che il programma sia coerente e inserire allegro(grand rottura di scatole)
+// ora devo verificare la funzionalita' della divisione (al momento penso che funzioni 2 test fatti) poi verificare che il programma 
+//sia coerente e inserire allegro(grand rottura di scatole)
 using namespace std;
 void troppo()
 {
@@ -130,7 +131,7 @@ void blackjack(int cru[], int &credit, int &punt, string &contr)
 }
 void giocate(int gio[], int cru[], int &punt, int &credit, string name, string &contr)
 {
-  int so = gio[0] + gio[1], sc = cru[0] + cru[1], controllo = 0, a = 0, app2 = 2, mae = 0, yu = 0;
+  int so = gio[0] + gio[1], sc = cru[0] + cru[1], controllo = 0, a = 0, app2 = 2, mae = 0, yu = 2;
   string pesca = "y";
   cout << name << " le tue carte sono " << gio[0] << " " << gio[1] << endl
        << "somma delle tue carte " << gio[0] + gio[1] << endl
@@ -179,15 +180,15 @@ void giocate(int gio[], int cru[], int &punt, int &credit, string name, string &
   if (controllo != 10)
   {
     cout << "crupier mano:";
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 10; i++)
     {
+      if (cru[ i]!=0){
       cout << cru[i] << " ";
+      }
     }
     cout << endl;
     do
     {
-
-      yu = 2;
       mae = rand() % 10 + 2;
       cru[yu] = mae;
       sc += mae;
@@ -466,8 +467,8 @@ void regole()
 int main()
 {
   int a = 0;
-  cout << "1 GIOCA " << endl
-       << "2 REGOLE" << endl;
+  cout << "1) GIOCA " << endl
+       << "2) REGOLE" << endl;
   do
   {
     cin >> a;
